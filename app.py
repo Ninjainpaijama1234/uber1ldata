@@ -1,6 +1,6 @@
 # app.py
 # Uber NCR 2024 — Analytics & Decision Lab (Lean, Py3.13-friendly)
-# Hard-coded dataset basename: ncr_ride_bookingsv2  (CSV in repo)
+# Hard-coded dataset basename: ncr_ride_bookings75k  (CSV in repo)
 # No sklearn/prophet/xgboost/lightgbm/shap. GLM/OLS/ARIMA/KMeans via statsmodels/NumPy.
 
 from __future__ import annotations
@@ -28,7 +28,7 @@ RANDOM_STATE = 42
 np.random.seed(RANDOM_STATE)
 
 # --- Hard-coded dataset base name (no extension required) ---
-DATA_BASENAME = "ncr_ride_bookingsv2"
+DATA_BASENAME = "ncr_ride_bookings75k"
 
 # Schema (strict headers)
 SCHEMA = [
@@ -139,7 +139,7 @@ def load_csv_hardcoded() -> pd.DataFrame:
         return df
     raise FileNotFoundError(
         "Could not find dataset. Looked for:\n" + "\n".join(f"• {p}" for p in tried) +
-        "\nAlso scanned repo (shallow) for ncr_ride_bookingsv2.csv."
+        "\nAlso scanned repo (shallow) for ncr_ride_bookings75k.csv."
     )
 
 @st.cache_data(show_spinner=False)
